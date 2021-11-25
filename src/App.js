@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router";
+import Main from "./pages/Main";
+import Cart from "./pages/Cart";
+import { connect } from "react-redux";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="bg-black text-white h-screen w-screen overflow-y-scroll">
+      <div class="container flex flex-col max-w-2xl mx-auto px-3 py-5">
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="cart" element={<Cart />} />
+        </Routes>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default connect()(App);
+
